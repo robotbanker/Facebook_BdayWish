@@ -77,14 +77,16 @@ class Bot ():
                     name = (name_lastname.text).split(' ')[0]
                     bday_button = self.driver.find_elements_by_xpath(("//*[contains(text(), 'a happy birthday...')]"))
                     bday_button[0].click()
-                    sleep (3)
+                    sleep(3)
                     bday_box = self.driver.find_elements_by_xpath('//*[@role="textbox"]')
-                    bday_wish = self.bday_wish(name = name)
+                    bday_wish = self.bday_wish(name=name)
                     bday_box[-1].send_keys(bday_wish)
-                    #birthday_messages[(name_lastname.text)] = bday_wish # this line appends to a temporary dict full name and message sent to each person
-                    sleep(1)
+                    # birthday_messages[(name_lastname.text)] = bday_wish # this line appends to a temporary dict full name and message sent to each person
+                    sleep(3)
                     post = self.driver.find_elements_by_xpath("//*[contains(text(),'Post')]")
-                    post[0].click()
+                    post[2].click()
+                    print(bday_wish)
+                    sleep(5)
         except Exception:
             print('there are no other bday boys&girls for today')
             self.driver.quit()

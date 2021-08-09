@@ -24,7 +24,7 @@ class Bot ():
         pwd = self.driver.find_elements_by_xpath('//*[@id="pass"]')
         pwd[0].send_keys(password)
         pwd[0].send_keys(Keys.ENTER)
-        sleep(3)
+        sleep(5)
 
 
     def move_to_birth(self):
@@ -73,9 +73,11 @@ class Bot ():
                         bday_wish = self.bday_wish(name = name)
                         bday_box[-1].send_keys(bday_wish)
                         #birthday_messages[(name_lastname.text)] = bday_wish # this line appends to a temporary dict full name and message sent to each person
-                        sleep(1)
+                        sleep(3)
                         post = self.driver.find_elements_by_xpath("//*[contains(text(),'Post')]")
-                        post[0].click()
+                        post[2].click()
+                        print(bday_wish)
+                        sleep(5)
             except Exception:
                 print('there are no other bday boys&girls for today')
                 self.driver.quit()
